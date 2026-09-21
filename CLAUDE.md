@@ -38,7 +38,10 @@ Fase atual: **MP-DOC-00 — Fundação Documental**.
 ## 5. Offline-first
 
 - O mobile é offline-first: SQLite local é fonte de verdade da sessão do usuário até sincronizar.
-- Ver [docs/05-offline-sync/OFFLINE-FIRST-CONTRACT.md](docs/05-offline-sync/OFFLINE-FIRST-CONTRACT.md).
+- **Offline core** (abrir, ler local, GPS, criar ponto/captura, mídia, sync sem duplicar) é
+  constitucional. **Basemap offline** é decisão separada e aberta (ADR-0010) — não prometer.
+- Ver [docs/05-offline-sync/OFFLINE-FIRST-CONTRACT.md](docs/05-offline-sync/OFFLINE-FIRST-CONTRACT.md)
+  e [PROJECT-CONSTITUTION](docs/00-governance/PROJECT-CONSTITUTION.md) Art. 4 e 4-A.
 
 ## 6. Sync idempotente
 
@@ -63,7 +66,17 @@ Fase atual: **MP-DOC-00 — Fundação Documental**.
 ## 10. Gates
 
 - Gates são obrigatórios. **Falha de gate bloqueia** a entrega — não existe "passa mesmo assim".
+- Estados válidos: `PASS` | `FAIL` | `BLOCKED` | `PENDING` | `NOT-APPLICABLE`. Nada de
+  "PASS parcial". Aprovação humana é registrada à parte (`HUMAN APPROVAL`).
+- Gate é avaliado **por escopo**: o que está aberto bloqueia o que depende dele, não o projeto inteiro.
   Ver [docs/15-quality/QUALITY-GATES.md](docs/15-quality/QUALITY-GATES.md).
+
+## 10-A. Contagens e resumos derivados
+
+- Contagem, resumo ou tabela de estado fora do SSOT é **derivado**: recalcule do SSOT antes
+  de escrever. Nunca copie um número de relatório, PR ou resumo anterior.
+- Relatório e corpo de PR **não são SSOT**.
+  Ver [DECISION-POLICY](docs/00-governance/DECISION-POLICY.md) §8.
 
 ## 11. Evidências
 
@@ -83,6 +96,13 @@ Fase atual: **MP-DOC-00 — Fundação Documental**.
 
 - Não marcar PR como ready, não mergear e não fazer force-push sem pedido explícito.
 - Commits descritivos, uma branch por missão.
+
+## 13-A. Autoridade
+
+- **Product Owner / autoridade humana final: Maike Lima.**
+- Agentes de IA são **executores e revisores**: propõem, auditam e documentam; **nunca**
+  aceitam ADR, congelam onda, liberam gate, aprovam PR ou mergeiam.
+  Ver [PROJECT-CONSTITUTION](docs/00-governance/PROJECT-CONSTITUTION.md) Art. 15.
 
 ## 14. Relatório final
 

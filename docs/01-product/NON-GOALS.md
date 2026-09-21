@@ -1,9 +1,11 @@
 ---
-Status: DRAFT
-Version: 0.1.0
-Last Updated: 2026-09-20
-Owners: (a definir)
-Related ADRs: —
+Status: REVIEW
+Version: 0.2.0
+Last Updated: 2026-09-21
+Owners: Maike Lima (autoridade humana final)
+Related ADRs: ADR-0010
+Wave: F0
+Lifecycle: FREEZE-CONTROLLED
 ---
 
 # Não-Objetivos
@@ -46,6 +48,12 @@ Insights, se existirem, são agregados, anônimos e passam por verificação de 
 ## 9. Não é plataforma sem moderação
 Não lançamos recurso social sem denúncia, bloqueio e caminho de moderação.
 
-## 10. Não é software acoplado a um provider
+## 10. Não promete base cartográfica offline antes de decidir
+Enquanto ADR-0010 estiver `OPEN` e o `MAP-LICENSE-GATE` `BLOCKED`, "mapas offline" não é
+recurso prometido — nem em documentação, nem em interface, nem em loja de aplicativos.
+O **offline core** (marcar, registrar, não perder, sincronizar) continua sendo promessa
+firme. Ver Constituição, Art. 4 e 4-A.
+
+## 11. Não é software acoplado a um provider
 Supabase, Vercel e Google são infraestrutura inicial, não arquitetura. O produto não pode
 se tornar impossível de migrar.

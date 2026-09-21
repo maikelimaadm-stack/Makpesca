@@ -3,6 +3,11 @@
 Plataforma de pesca: mapa, pontos, capturas, offline real, rede social especializada
 e ecossistema comercial (lojas parceiras, ofertas, afiliados).
 
+> **"Offline real"** refere-se ao **offline core**: abrir sem rede, consultar os dados
+> locais, obter GPS, marcar ponto, registrar captura, anexar mídia e sincronizar depois
+> sem duplicar. A **base cartográfica offline** é decisão separada e ainda aberta
+> ([ADR-0010](docs/adr/ADR-0010-OFFLINE-MAPS.md)) e **não é recurso prometido**.
+
 > **Conceito:** "Waze da pesca + comunidade especializada + ecossistema comercial da pesca."
 
 ## Estado atual do repositório
@@ -15,6 +20,8 @@ não existe app, não existe API executável, não existe schema de banco.
 | Gate | Estado |
 |------|--------|
 | `IMPLEMENTATION-READY-GATE` | **BLOCKED** |
+| `MAP-LICENSE-GATE` (basemap offline) | **BLOCKED** |
+| `HUMAN APPROVAL` (F0) | **PENDING** — autoridade: Maike Lima |
 
 Nenhuma implementação de produto pode começar antes que o
 `IMPLEMENTATION-READY-GATE` seja liberado conforme
@@ -46,7 +53,7 @@ DOCUMENTAR → AUDITAR → CORRIGIR → CONGELAR POR ONDAS → DEFINIR SLICES
 | Banco | PostgreSQL + PostGIS (Supabase como infraestrutura inicial) |
 | Local mobile | SQLite |
 | Mapa online | Google Maps Platform (candidato) |
-| Mapa offline | **decisão aberta** — ver [ADR-0010](docs/adr/ADR-0010-OFFLINE-MAPS.md) |
+| Basemap offline | **decisão aberta e bloqueante** — ver [ADR-0010](docs/adr/ADR-0010-OFFLINE-MAPS.md) |
 | Arquivos | Object Storage via adapter |
 
 Regra estrutural: **clientes nunca acessam PostgreSQL/Supabase diretamente para regra de negócio.**

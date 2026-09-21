@@ -1,9 +1,11 @@
 ---
-Status: DRAFT
-Version: 0.1.0
-Last Updated: 2026-09-20
-Owners: (a definir)
+Status: REVIEW
+Version: 0.2.0
+Last Updated: 2026-09-21
+Owners: Maike Lima (autoridade humana final)
 Related ADRs: todos
+Wave: cross-cutting (controle vivo; registrada em F0)
+Lifecycle: LIVING
 ---
 
 # Documentação MAKPESCA — Índice Oficial
@@ -11,14 +13,23 @@ Related ADRs: todos
 Este arquivo é o **índice oficial** da documentação e o mapa de **SSOTs**
 (Single Source of Truth). Se dois documentos discordarem, vale o SSOT indicado aqui.
 
-Fase atual: **MP-DOC-00 — Fundação Documental**.
-`IMPLEMENTATION-READY-GATE` = **BLOCKED**.
+Fase atual: **MP-DOC-00 v2 R1 — Fundação Documental, candidatura de F0**.
+`IMPLEMENTATION-READY-GATE` = **BLOCKED**. `HUMAN APPROVAL` (F0) = **PENDING**.
+
+**Product Owner / autoridade humana final: Maike Lima**
+(SSOT: [PROJECT-CONSTITUTION](00-governance/PROJECT-CONSTITUTION.md) Art. 15).
+
+**Offline core ≠ basemap offline.** O offline core é constitucional (Art. 4); a base
+cartográfica offline é decisão separada e ainda aberta (Art. 4-A, ADR-0010).
 
 ## 1. Mapa de SSOTs
 
 | Assunto | SSOT |
 |---------|------|
 | Regras inegociáveis do projeto | `00-governance/PROJECT-CONSTITUTION.md` |
+| **Ownership e autoridade final** | `00-governance/PROJECT-CONSTITUTION.md` Art. 15 |
+| **Composição das ondas (Core/Living)** | `00-governance/FREEZE-POLICY.md` §7 |
+| **Contagens e resumos derivados** | `00-governance/DECISION-POLICY.md` §8 |
 | Como se decide | `00-governance/DECISION-POLICY.md` |
 | Como se congela | `00-governance/FREEZE-POLICY.md` |
 | Estado de cada documento | `00-governance/DOCUMENT-STATUS.md` |
@@ -91,6 +102,7 @@ Fase atual: **MP-DOC-00 — Fundação Documental**.
 - [RISK-REGISTER.md](00-governance/RISK-REGISTER.md)
 - [OPEN-QUESTIONS.md](00-governance/OPEN-QUESTIONS.md)
 - [ASSUMPTIONS.md](00-governance/ASSUMPTIONS.md)
+- [F0-FREEZE-CANDIDATE-REPORT.md](00-governance/F0-FREEZE-CANDIDATE-REPORT.md)
 
 ### 01 — Produto
 - [PRODUCT-VISION.md](01-product/PRODUCT-VISION.md)

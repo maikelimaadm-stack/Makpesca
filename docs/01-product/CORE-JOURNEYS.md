@@ -14,20 +14,27 @@ Jornadas descrevem **comportamento esperado**, não implementação.
 
 1. Usuário abre o mapa e navega até a região onde vai pescar.
 2. Consulta corpos d'água, pontos públicos, capturas públicas recentes e condições.
-3. Baixa a região para uso offline (limites do plano se aplicam — ver `../12-billing/ENTITLEMENTS.md`).
+3. Baixa a região para uso offline **se houver basemap offline disponível** — recurso
+   condicionado a ADR-0010 e ao `MAP-LICENSE-GATE` (Constituição, Art. 4-A). Quando
+   existir, limites do plano se aplicam (ver `../12-billing/ENTITLEMENTS.md`).
 4. Confere lojas parceiras no caminho e eventos da comunidade local.
 
-**Critério de sucesso:** ao sair de casa, o app tem tudo que precisa para operar sem rede.
+**Critério de sucesso:** ao sair de casa, o app tem os **dados do usuário e os catálogos**
+necessários para operar sem rede. A base cartográfica offline é um acréscimo condicional,
+não parte do critério.
 
 ## J2 — Pescar sem sinal (offline, no campo)
 
-1. Sem internet, o app abre e mostra o mapa da região baixada.
+1. Sem internet, o app abre e mostra os dados locais do usuário (pontos, capturas,
+   catálogos). Se houver basemap offline baixado, ele é exibido; se não houver, o app
+   funciona sem base cartográfica detalhada.
 2. GPS fornece a posição atual.
 3. Usuário marca um ponto novo (nome, tipo, observações). Ponto nasce `PRIVATE`.
 4. Usuário registra uma captura: espécie, peso, comprimento, isca, técnica, horário, foto.
 5. Fecha o app. Reabre. **Tudo continua lá.**
 
-**Critério de sucesso:** zero perda, zero dependência de rede, feedback imediato.
+**Critério de sucesso:** zero perda, zero dependência de rede, feedback imediato — com ou
+sem base cartográfica offline.
 
 ## J3 — Voltar e sincronizar
 

@@ -11,23 +11,37 @@ Related ADRs: ADR-0010, ADR-0011
 Este documento é **contrato**, não aspiração. Se o comportamento aqui não acontecer,
 o produto falhou.
 
+## 0. Dois escopos distintos
+
+| Escopo | Natureza | Depende de |
+|--------|----------|-----------|
+| **OFFLINE APP CORE** | **Constitucional** (Art. 4). Contrato firme deste documento | nada em aberto |
+| **OFFLINE CARTOGRAPHIC BASEMAP** | Recurso **candidato** (Art. 4-A) | ADR-0010 `OPEN` + `MAP-LICENSE-GATE` `BLOCKED` |
+
+Tudo neste documento é contrato do **core**, exceto onde marcado como condicional.
+Se ADR-0010 concluir que não há solução legal e viável, o core continua valendo integralmente,
+operando **sem base cartográfica detalhada**.
+
 ## 1. Cenário de referência
 
 ```
-baixar região → ficar sem internet → obter GPS → consultar mapa →
+[baixar região — condicional] → ficar sem internet → obter GPS →
+consultar dados locais (e o basemap, se existir) →
 criar ponto → registrar captura → anexar foto → fechar o app →
 reabrir o app → dados continuam lá → reconectar → sincronizar →
 sem duplicar → uploads retomados → conflitos tratados → convergência
 ```
 
-Cada seta acima é um requisito testável. Ver `../15-quality/OFFLINE-TEST-MATRIX.md`.
+Cada seta acima é um requisito testável, **exceto a primeira**, que é condicional ao
+ADR-0010. Ver `../15-quality/OFFLINE-TEST-MATRIX.md`.
 
 ## 2. O que funciona 100% offline
 
 | Função | Offline | Observação |
 |--------|---------|------------|
 | Abrir o app e autenticar sessão já estabelecida | Sim | Sessão válida em cache seguro |
-| Ver mapa de região baixada | Sim | Depende de ADR-0010 |
+| Ver dados locais (pontos, capturas, catálogos) sobre o mapa | Sim | **Core** — não depende de ADR-0010 |
+| Ver base cartográfica de região baixada | **Condicional** | **Não é core** — depende de ADR-0010 |
 | Obter posição GPS | Sim | Hardware, não rede |
 | Criar/editar/excluir ponto próprio | Sim | |
 | Registrar captura com fotos | Sim | |
@@ -64,6 +78,8 @@ Cada seta acima é um requisito testável. Ver `../15-quality/OFFLINE-TEST-MATRI
 
 ## 5. Limites explícitos
 
+- Offline **não** significa base cartográfica detalhada: o basemap offline é condicional
+  (Art. 4-A) e sua ausência não descumpre este contrato.
 - Offline **não** significa acesso a dados de terceiros nunca baixados.
 - Offline **não** contorna limites de plano (ex.: número de regiões).
 - Offline **não** garante edição concorrente livre de conflito — ver `CONFLICT-RESOLUTION.md`.
@@ -78,7 +94,7 @@ Cada seta acima é um requisito testável. Ver `../15-quality/OFFLINE-TEST-MATRI
 | Rede volta | Sincroniza em segundo plano, sem exigir ação |
 | Falha permanente de um item | Item fica visível com motivo e opção de reenviar |
 | Conflito detectado | Resolução automática quando segura; pergunta ao usuário quando não |
-| Espaço em disco insuficiente | Aviso claro antes de baixar região ou capturar mídia |
+| Espaço em disco insuficiente | Aviso claro antes de capturar mídia (e antes de baixar região, se o recurso existir) |
 
 ## 7. Requisito de teste
 

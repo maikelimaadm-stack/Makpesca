@@ -62,12 +62,26 @@ Superseded By.
 | Estado | Quantidade |
 |--------|-----------|
 | ACCEPTED | 2 |
-| PROPOSED | 12 |
-| **OPEN** | **7** |
+| PROPOSED | 11 |
+| **OPEN** | **8** |
 | FROZEN | 0 |
+| SUPERSEDED | 0 |
+| REJECTED | 0 |
+| **Total** | **21** |
 
-**7 ADRs abertos** impedem o congelamento de suas ondas.
+`OPEN` (8): ADR-0006, ADR-0007, ADR-0008, ADR-0010, ADR-0014, ADR-0015, ADR-0016, ADR-0019.
+`ACCEPTED` (2): ADR-0003, ADR-0012.
+
+**8 ADRs abertos** impedem o congelamento de suas ondas (F3, F5, F6, F7, F8, F9).
 ADR-0010 é o bloqueio mais grave do projeto.
+
+Nenhum ADR `OPEN` pertence à onda **F0** — ver
+`../00-governance/F0-FREEZE-CANDIDATE-REPORT.md`.
+
+> Esta tabela é **derivada**. O SSOT do estado das decisões é
+> `../00-governance/DECISION-REGISTRY.md`; o estado autoritativo de cada ADR é o campo
+> `Status` do próprio arquivo. Recalcule a contagem a partir dos arquivos antes de
+> reproduzi-la em qualquer lugar (ver `DECISION-POLICY.md` §8).
 
 ## 6. Como criar um ADR
 

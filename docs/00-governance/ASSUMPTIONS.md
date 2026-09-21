@@ -1,9 +1,11 @@
 ---
-Status: DRAFT
-Version: 0.1.0
-Last Updated: 2026-09-20
-Owners: (a definir)
+Status: REVIEW
+Version: 0.2.0
+Last Updated: 2026-09-21
+Owners: Maike Lima (autoridade humana final)
 Related ADRs: —
+Wave: cross-cutting (controle vivo; registrada em F0)
+Lifecycle: LIVING
 ---
 
 # Premissas

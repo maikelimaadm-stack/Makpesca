@@ -1,9 +1,11 @@
 ---
-Status: DRAFT
-Version: 0.1.0
-Last Updated: 2026-09-20
-Owners: (a definir)
-Related ADRs: ADR-0011, ADR-0012
+Status: REVIEW
+Version: 0.2.0
+Last Updated: 2026-09-21
+Owners: Maike Lima (autoridade humana final)
+Related ADRs: ADR-0010, ADR-0011, ADR-0012
+Wave: F0
+Lifecycle: FREEZE-CONTROLLED
 ---
 
 # Princípios de Produto
@@ -20,7 +22,12 @@ São decisões separadas, em momentos diferentes da interface. O usuário nunca 
 descobrir depois que revelou o local.
 
 ## P4 — Offline não é modo degradado
-Sem rede, o app continua útil e confiável. A sincronização é invisível quando funciona.
+Sem rede, o app continua útil e confiável: abre, mostra os dados locais, obtém GPS, permite
+marcar ponto, registrar captura e anexar mídia; sincroniza depois, sem duplicar.
+A sincronização é invisível quando funciona.
+
+Este princípio cobre o **offline core**. A base cartográfica offline é decisão separada e
+ainda aberta (Constituição, Art. 4-A); o core não depende dela.
 
 ## P5 — Nada se perde
 Registro criado offline é durável antes mesmo de chegar à tela de sucesso. Perda de dado

@@ -1,9 +1,11 @@
 ---
-Status: DRAFT
-Version: 0.1.0
-Last Updated: 2026-09-20
-Owners: (a definir)
-Related ADRs: ADR-0001, ADR-0002, ADR-0003
+Status: REVIEW
+Version: 0.2.0
+Last Updated: 2026-09-21
+Owners: Maike Lima (autoridade humana final)
+Related ADRs: ADR-0001, ADR-0002, ADR-0003, ADR-0010
+Wave: F0
+Lifecycle: FREEZE-CONTROLLED
 ---
 
 # Visão de Produto
@@ -24,8 +26,13 @@ rankings, lojas parceiras, ofertas e um plano PRO com inteligência de pesca.
 ## 3. Os três pilares
 
 ### Pilar 1 — Mapa e campo (o que o pescador usa no rio)
-Posição atual, pontos próprios e públicos, capturas, GPS, regiões baixadas para uso offline,
-corpos d'água, condições ambientais, rotas e planejamento.
+Posição atual, pontos próprios e públicos, capturas, GPS, corpos d'água, condições
+ambientais, rotas e planejamento — com o **offline core** garantido (abrir, consultar os
+dados locais, obter GPS, marcar ponto, registrar captura, sincronizar depois).
+
+> A **base cartográfica offline** (mapa exibível sem rede) é recurso **candidato**, não
+> prometido: depende de ADR-0010 e do `MAP-LICENSE-GATE`, ambos em aberto.
+> Ver Constituição, Art. 4-A.
 
 ### Pilar 2 — Comunidade (o que o pescador usa em casa)
 Perfis, seguidores, feed de capturas, comunidades por rio/represa/estado/espécie/modalidade,
@@ -39,7 +46,7 @@ rastreável, portal de parceiros e Makpesca PRO.
 
 | Diferencial | Por quê |
 |-------------|---------|
-| **Offline real** | No lugar onde a pesca acontece, normalmente não há sinal. Produto que exige rede não serve |
+| **Offline real (core)** | No lugar onde a pesca acontece, normalmente não há sinal. Produto que exige rede não serve. Refere-se ao *offline core*: marcar, registrar e não perder nada sem rede — não à base cartográfica, que é decisão à parte |
 | **Geo-privacidade levada a sério** | Ponto de pesca é patrimônio pessoal. Vazar ponto destrói confiança de forma irreversível |
 | **Especialização** | Cada tela existe para pesca. Não é rede social genérica com tema de peixe |
 | **Comunidade regional** | Pesca é local: rio, represa, espécie e temporada específicos |
@@ -53,10 +60,14 @@ iniciante ao experiente, mais guias, organizadores de pescaria e lojas do setor.
 ## 6. Jornada central (resumo)
 
 ```
-descobrir região → baixar offline → ir pescar sem sinal → marcar ponto →
+descobrir região → preparar o dispositivo → ir pescar sem sinal → marcar ponto →
 registrar captura com foto → voltar → sincronizar → decidir o que publicar →
 compartilhar com comunidade → descobrir pessoas, lojas e eventos
 ```
+
+"Preparar o dispositivo" inclui baixar uma região **se e quando** houver solução de
+basemap offline decidida (ADR-0010). Sem ela, a jornada permanece válida: o offline core
+não depende do basemap.
 
 Detalhe em `CORE-JOURNEYS.md`.
 
@@ -80,7 +91,7 @@ e não é catálogo colaborativo de pontos alheios.
 | Horizonte | Foco |
 |-----------|------|
 | MVP | Conta, mapa, ponto, captura, privacidade, offline, sync, social mínimo |
-| Pós-MVP | Comunidades completas, mapas offline avançados, PRO, lojas e afiliados |
+| Pós-MVP | Comunidades completas, PRO, lojas e afiliados; basemap offline **se** ADR-0010 resolver |
 | Futuro | Inteligência de pesca, desafios patrocinados, portal de parceiros maduro, admin completo |
 
 ## 10. Como medimos sucesso

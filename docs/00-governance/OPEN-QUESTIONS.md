@@ -1,9 +1,11 @@
 ---
-Status: DRAFT
-Version: 0.1.0
-Last Updated: 2026-09-20
-Owners: (a definir)
+Status: REVIEW
+Version: 0.2.0
+Last Updated: 2026-09-21
+Owners: Maike Lima (autoridade humana final)
 Related ADRs: ADR-0006, ADR-0007, ADR-0008, ADR-0010, ADR-0013, ADR-0014, ADR-0019
+Wave: cross-cutting (controle vivo; registrada em F0)
+Lifecycle: LIVING
 ---
 
 # Perguntas Abertas
@@ -12,7 +14,6 @@ Toda pergunta aqui tem onda-alvo. Pergunta `BLOCKING` impede o congelamento da s
 
 | ID | Pergunta | Onda | Criticidade | Impacto se errar | Como resolver |
 |----|----------|------|-------------|------------------|---------------|
-| Q-001 | Quem são os owners nominais por área? | F0 | BLOCKING | Nada tem dono; decisões travam | Definição do responsável do produto |
 | Q-002 | O produto adota "amizade" mútua além de follow? | F1 | ALTA | Muda modelo social e permissões | Decisão de produto + ADR-0018 |
 | Q-003 | Qual o recorte geográfico inicial (Brasil todo? região piloto?) | F1 | ALTA | Muda custo, moderação e catálogo de espécies | Decisão de produto |
 | Q-004 | Qual solução de mapa offline é legalmente compatível e viável? | F5 | **BLOCKING** | Recurso central do produto pode ser inviável ou ilegal | Pesquisa com fonte + data; ADR-0010 |
@@ -42,6 +43,34 @@ Toda pergunta aqui tem onda-alvo. Pergunta `BLOCKING` impede o congelamento da s
 ## Itens BLOCKING atualmente abertos
 
 - **Q-004** e **Q-005** — mapa offline e licença de tiles. Bloqueiam `F5`.
-- **Q-001** — owners. Bloqueia `F0`.
 
 Enquanto houver item `BLOCKING` na onda, `FREEZE = BLOCKED` para aquela onda.
+
+### Por onda
+
+| Onda | Itens BLOCKING abertos |
+|------|------------------------|
+| **F0** | **nenhum** |
+| F1 | nenhum BLOCKING (pendências ALTA: Q-002, Q-003, Q-015, Q-021 + pesquisa de concorrência) |
+| F2 | nenhum |
+| F3 | nenhum BLOCKING (pendências ALTA: Q-007, Q-016, Q-017, Q-023) |
+| F4 | nenhum |
+| **F5** | **Q-004, Q-005** |
+| F6 | nenhum BLOCKING (pendências ALTA: Q-006, Q-008) |
+| F7 | nenhum |
+| F8 | nenhum BLOCKING (pendências ALTA: Q-010, Q-019, Q-020) |
+| F9 | nenhum |
+| F10 | depende de F0..F9 |
+
+## Perguntas resolvidas
+
+O histórico é preservado: pergunta resolvida sai da tabela ativa e dos itens `BLOCKING`,
+mas permanece registrada aqui com resposta, data e origem.
+
+| ID | Pergunta | Onda | Resposta | Data | Origem |
+|----|----------|------|----------|------|--------|
+| Q-001 | Quem são os owners nominais por área? | F0 | **Product Owner / Final Decision Authority: Maike Lima.** Até delegação formal registrada, é também a autoridade humana final de arquitetura e governança. Agentes de IA são executores e revisores, nunca owners finais. SSOT: `PROJECT-CONSTITUTION.md` Art. 15. | 2026-09-21 | Definição do responsável do produto (MP-DOC-00 v2 R1, finding R1-05) |
+
+Efeito de Q-001 sobre o congelamento: **F0 deixa de ter item `BLOCKING`.** Documentos fora
+do conjunto de congelamento de uma onda podem manter `Owners: (a definir)`; documentos do
+Core Freeze Set de uma onda, não (Constituição, Art. 15.4).

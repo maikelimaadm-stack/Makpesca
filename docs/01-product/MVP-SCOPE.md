@@ -55,10 +55,11 @@ Classificação usada em todo o documento: `MVP` | `POST-MVP` | `FUTURE` | `NEED
 ### Offline
 | Item | Classificação |
 |------|---------------|
+| **Offline core** (abrir, ler dados locais, GPS, criar ponto/captura, mídia, durabilidade, sync sem duplicar) | **MVP — constitucional** |
 | SQLite local com dados do usuário | MVP |
 | Criar ponto e captura offline | MVP |
 | Fila de mídia com retomada | MVP |
-| Região de mapa offline | **NEEDS-DECISION** (depende de ADR-0010) |
+| Região de mapa offline (basemap) | **NEEDS-DECISION** — depende de ADR-0010; **fora do offline core** |
 
 ### Sync
 | Item | Classificação |
@@ -106,6 +107,7 @@ Ver `POST-MVP-SCOPE.md` e `FUTURE-SCOPE.md`.
 
 ## 3. Critérios de aceite do MVP
 
+0. O **offline core** funciona integralmente **sem** base cartográfica offline.
 1. Usuário cria ponto e captura **sem rede** e não perde nada ao reabrir o app.
 2. Sincronização repetida **não duplica** nenhum registro.
 3. Coordenada de ponto `PRIVATE` **nunca** aparece em resposta de API para terceiro.

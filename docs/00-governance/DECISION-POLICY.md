@@ -1,9 +1,11 @@
 ---
-Status: DRAFT
-Version: 0.1.0
-Last Updated: 2026-09-20
-Owners: (a definir)
+Status: REVIEW
+Version: 0.2.0
+Last Updated: 2026-09-21
+Owners: Maike Lima (autoridade humana final)
 Related ADRs: todos
+Wave: F0
+Lifecycle: FREEZE-CONTROLLED
 ---
 
 # Política de Decisão
@@ -75,5 +77,40 @@ entra no `RISK-REGISTER.md`.
 
 ## 7. Quem decide
 
-Nesta fase o projeto não tem papéis nomeados. `Owners: (a definir)` é intencional e
-deve ser resolvido antes da onda F0 ser congelada — ver `OPEN-QUESTIONS.md` (Q-001).
+**Product Owner / Final Decision Authority: Maike Lima.**
+Até delegação formal registrada, é também a autoridade humana final de arquitetura e
+governança. O SSOT deste papel é `PROJECT-CONSTITUTION.md` Art. 15; esta seção é
+derivada dele.
+
+Agentes de IA **propõem, auditam e documentam**; nunca aceitam ADR, congelam onda,
+liberam gate ou aprovam PR. Ver Constituição, Art. 15.
+
+Documento fora do conjunto de congelamento de uma onda pode manter `Owners: (a definir)`
+até ser incluído em uma onda. Documento cujo congelamento está em jogo, não.
+
+Resolvido em 2026-09-21 (Q-001, ver `OPEN-QUESTIONS.md` §"Perguntas resolvidas").
+
+## 8. Resumos e contagens derivados
+
+Contagem, resumo ou tabela de estado que aparece fora do SSOT é **derivado**.
+
+| Assunto | SSOT |
+|---------|------|
+| Estado de uma decisão / ADR | `DECISION-REGISTRY.md` + o campo `Status` do próprio ADR |
+| Estado de um documento | `DOCUMENT-STATUS.md` + o cabeçalho do próprio documento |
+| Perguntas abertas e `BLOCKING` | `OPEN-QUESTIONS.md` |
+| Estado de gates | `../15-quality/QUALITY-GATES.md` |
+| Composição de uma onda | `FREEZE-POLICY.md` §7 |
+
+Regras:
+
+1. **Recalcule do SSOT** antes de escrever qualquer contagem. Não copie um número de um
+   resumo anterior, de um relatório ou de um corpo de PR.
+2. **Relatório, corpo de PR, README e índice não são SSOT.** São instantâneos, e
+   envelhecem.
+3. Ao mudar um estado no SSOT, atualize os derivados conhecidos **no mesmo commit**.
+4. Divergência entre derivado e SSOT é falha do gate `DOC-CONSISTENCY`.
+
+Esta regra existe porque a rodada R1 encontrou exatamente esse defeito: contagens de ADR
+copiadas de um resumo anterior em vez de recalculadas (`OPEN=7`/`PROPOSED=12`, quando os
+arquivos diziam `OPEN=8`/`PROPOSED=11`).
